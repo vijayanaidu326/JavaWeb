@@ -1,7 +1,7 @@
 FROM openjdk:16-alpine3.13 as dev
+FROM maven
 WORKDIR /JavaWeb
 COPY . .
-RUN yum install maven -y
 RUN mvn package
 
 FROM tomcat
