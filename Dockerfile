@@ -1,7 +1,7 @@
-FROM openjdk:16-alpine3.13 
+FROM maven as dev
 WORKDIR /JavaWeb
 COPY . .
-FROM maven as dev
+RUN mvn package
 
 FROM tomcat
 COPY --from=dev /JavaWeb/target/*.war /usr/local/tomcat/webapps
