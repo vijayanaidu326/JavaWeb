@@ -1,4 +1,5 @@
 FROM openjdk:16-alpine3.13 as dev
+RUN yum -y install maven
 WORKDIR /JavaWeb
 COPY . .
 RUN mvn package
